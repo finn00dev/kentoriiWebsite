@@ -21,7 +21,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 				<div id ="errorMessage" class="alert alert-danger" role="alert" style = "display: none">
 
-					  
+
 				</div>
 
 		    <form method="POST" action="controllers/Landing.php" name="signIn" id="signInForm">
@@ -639,30 +639,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     		<canvas id="navigationChart"></canvas>
 		</div>
 	</div>
-	
+
 	<div id = "form-container" style = "position: relative; width: 80vw; margin: auto; margin-top: 5vh;">
 		<form method="POST" action="controllers/Landing.php" name="adminForm" id="adminForm" style = "text-align: center">
   			<input type="date" name="minDate">
 			<input type="date" name="maxDate">
-			
+
 			<input list="countries" name="countries">
   				<datalist id="countries">
 					{% for country in countries %}
         				<option value = "{{ country['country'] }}">
-    				{% endfor %}					
+    				{% endfor %}
   				</datalist>
 
 			<input list="cities" name="cities">
   				<datalist id="cities">
 					{% for city in cities %}
         				<option value = "{{ city['city'] }}">
-    				{% endfor %}					
-  				</datalist>		
+    				{% endfor %}
+  				</datalist>
 
-			<input type ='hidden' name = 'applied' value = 'applied'> 
-  			<input type="submit" name = 'apply' value = 'Apply Filter' id = "chartApply"> 
+			<input type ='hidden' name = 'applied' value = 'applied'>
+  			<input type="submit" name = 'apply' value = 'Apply Filter' id = "chartApply">
 		</form>
 	</div>
+
+	<form action="/upload.php" target="_blank" method="post" enctype="multipart/form-data">
+		<input type="file" name="resumefile" id="resumefile">
+    <input type="submit" value="Upload Image" name="submit">
+	</form>
+
 </div>
 
 
